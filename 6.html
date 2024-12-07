@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.各位相加</title>
+</head>
+<body>
+    <!-- 各位相加 -->
+     <!-- 给定一个非负整数，反复将各个位上的数字相加，
+      直到结果为一位数，返回这个结果。 -->
+    <script>
+        // function add(a){
+        //     // var x=a.join(",");
+        //     // console.log(x);
+        //     a=a%10+a/10
+        // }
+
+        // var a=32;//5
+        // var a=232;//7
+        // var a=462;//3
+        // console.log(add(a));
+
+        function addDigitsLoop(num) {
+            while (num >= 10) {
+                let a = 0;
+                while (num > 0) {
+                    a += num % 10;
+                    num = Math.floor(num / 10);
+                }
+                num = a;
+            }
+            return num;
+        }
+
+        // function addDigitsMath(num) {
+        //     return num === 0? 0 : num % 9 || 9;
+        // }
+
+        var number=462;//3
+        // var number = 38;
+        var result1 = addDigitsLoop(number);
+        // const result2 = addDigitsMath(number);
+        console.log("通过循环计算的结果:", result1);
+        // console.log("通过数学规律计算的结果:", result2);
+    </script>
+</body>
+</html>

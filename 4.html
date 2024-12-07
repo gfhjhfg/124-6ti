@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.找不同</title>
+</head>
+<body>
+    <!-- 找不同 -->
+     <!-- 给定2个字符串s和t,它们只包含小写字母。字符串t由字符串s随机重排，
+     然后再随机位置添加一个字母。请找出在t中被添加的字母。 -->
+    <script>
+        // var str0=prompt("请输入一串只用小写字母的字符串");
+        var str0="uvwxyz";
+        console.log("这是输入的字符串 "+str0);
+        if(!/^[a-z]+$/.test(str0)){
+            alert("你输入的不是纯小写字母字符串，请重新输入")
+        }
+
+        // function getRandomLowerCaseLetter() {
+            // console.log(Math.random()*26);
+            const charCode = Math.floor(Math.random() * 26) + 97;
+            console.log("这是随机生成的字符串的ASCII的值 "+charCode)
+            // console.log(String.fromCharCode(charCode));
+            var add=String.fromCharCode(charCode);
+            console.log("这是随机生成的一个字符串的字母 "+add)
+        //     return add;
+        // }
+        var str=str0+add;
+        console.log("这是输入的字符串加上随机生成的一个字母 "+str);
+
+        // 打乱字符串顺序
+        function shuffleString(str) {
+            console.log(str.split(""));
+            console.log(str.split("").sort());
+            console.log(str.split('').sort(() => 0.5 - Math.random()));
+            console.log(str.split('').sort(() => 0.5 - Math.random()).join(''));
+            var luan=str.split('').sort(() => 0.5 - Math.random()).join('');
+            return luan;
+        }
+
+        // 主函数，实现打乱原字符串并插入随机小写字母
+        // function processString(str) {
+        //     let shuffled = shuffleString(str);
+        //     // 随机选择插入位置
+        //     const insertIndex = Math.floor(Math.random() * (shuffled.length + 1));
+        //     const randomLetter = getRandomLowerCaseLetter();
+        //     if (insertIndex === shuffled.length) {
+        //         shuffled += randomLetter;
+        //     } else {
+        //         shuffled = shuffled.slice(0, insertIndex) + randomLetter + shuffled.slice(insertIndex);
+        //     }
+        //     return shuffled;
+        // }
+        const result = shuffleString(str);
+        console.log("这是加入 "+add+" 之后打乱顺序的字符串"+result);
+
+        // var arr0=str0.split("");
+        // console.log(arr0)
+        // var arr=result.split("");
+        // console.log(arr)
+
+
+        // function noRepeat(arr){
+        //     var a=[];
+        //         for(var i=0 ;i<arr.length-1;i++){
+        //             if(arr0.indexOf(arr[i])!=-1){
+        //                 arr.splice(i,1);
+        //                 i--;
+        //                 // break;
+        //             }else{
+        //                 return arr[i];
+        //             }
+        //         }
+        //         // var b=a.join(',');
+        //         // console.log(b);
+        //         // console.log(arr-a);
+        //         return arr;
+        // }
+        // console.log(noRepeat(arr));
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.键盘行</title>
+</head>
+<body>
+    <!-- 键盘行 -->
+     <!-- 给你一个字符串数组words，只返回可以使用在美式键盘同
+     一行的字母打印出来的单词。请注意，字符串不区分大小写，
+     相同字母的大小写形式都被视为在同一行。 -->
+
+     <script>
+        function isRow(words){
+            var row1 = /^[qwertyuiopQWERTYUIOP]+$/;
+            var row2 = /^[asdfghjklASDFGHJKL]+$/;
+            var row3 = /^[zxcvbnmZXCVBNM]+$/;
+            var result = [];
+            // var str=words.join(",");
+            // console.log(str);
+            for(var i=0;i<words.length;i++){
+                // for(var j=0;j<words[i].length;j++){
+                //     if(words[i][j]==/[qwertyuiop]/){
+                        
+                //     }
+                // }
+                var word = words[i].toLowerCase();
+                console.log(word);
+                // console.log(row1.test(word));
+                // console.log(row2.test(word));
+                // console.log(row3.test(word));
+                // console.log("++++++++");
+        
+                if (row1.test(word) || row2.test(word) || row3.test(word)) {
+                    result.push(words[i]);
+                }
+                // console.log(words[i]);
+                // console.log(a);
+            }
+            return result;
+        }
+        words11=["Hello","Alaska","Dad","Peace"]//["Alaska","Dad"]
+        words22=["omk"]//[]
+        words33=["adsdf","sfd"]//["adsdf","sfd"]
+        console.log(words11+"中在同一行的有"+isRow(words11));
+        console.log(words22+"中在同一行的有"+isRow(words22));
+        console.log(words33+"中在同一行的有"+isRow(words33));
+     </script>
+
+     <!-- 
+     words=["Hello","Alaska","Dad","Peace"]//["Alaska","Dad"]
+     words=["omk"]//[]
+     words=["adsdf","sfd"]//["adsdf","sfd"]
+      -->
+</body>
+</html>
